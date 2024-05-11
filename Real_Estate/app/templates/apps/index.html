@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    {% load static %}
+    <link href="{% static 'fontawesomefree/css/all.min.css' %}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+    
+</head>
+<body>
+ <header id ="header">
+  <div class="container">
+          <h2 class="logo">DreamDwell<br>Ventures</h2>
+        <nav class="main-nav">
+          {% csrf_token %}
+          <ul>
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'about' %}">About</a></li>
+            <li><a href="{% url 'contact' %}">Contact</a></li>
+            <li><a href="{% url 'login' %}">Login</a></li>
+            <li><a href="{% url 'register' %}">Sign up</a></li>
+          </ul>
+        </nav>
+        <section class="home" id="home">
+
+        </section>
+  </div>
+</header>
+
+<section class="aboutsection" id="about">
+  <h1>About Us</h1>
+    <img src="/static/Images/about.jpg" alt="">
+    <h2>Why Choose Us?</h2>
+    
+    <p>J&B Makelaars (formerly Expat Property Brokers) is built on the ethos of service beyond expectations. 
+        Our focus has always been on quality service and working together to achieve an ideal outcome for our valued clients. 
+        We aim to build our brand and positively redefine the real estate market with personal and exceptional service.<br><br>
+        J&B Makelaars was established in 2016 by experienced international estate agent Bridgette Ball and her husband
+        Jason Ball. We wanted to establish a brand that we felt best represented our values. Over the years 
+        the business has shown a natural growth in the expat property market as we have an understanding of having walked
+        in the shoes of our clients being expats ourselves.<br><br>
+        That is why, for a period, the company was renamed Expat Property Brokers and began focusing primarily on expat 
+        property. With this success, more expat agencies began targeting the expat market, positioning themselves as 
+        expat specialists, and the name “Expat Property Brokers” became diluted, becoming as “an” rather than 
+        “the” expat property brokerage. Hence, in 2023 we decided to change our name back to J&B Makelaars.<br><br>
+        “We are returning to our roots as J&B Makelaars to serve expats with a specialised, personal touch,” says Bridgette. 
+        “We want our clients to feel like they’ve found a true home whenever they come to us for assistance. 
+        This is whether they are looking for a rental, buying a new home or selling their existing property.<br><br>
+        “Our mission at J&B Makelaars remains the same – to provide comprehensive real estate services 
+        tailored specifically for expats in the Netherlands. Our goal is to help you find your next home easily and confidently.
+        We are Your Expat Property Broker, an experienced team that understands how to handle your real estate needs as an expat.”<br><br>
+        Our keen understanding of the market and our clients’ needs allow us to craft the best estate solutions 
+        that offer exceptional service to clients at affordable rates.
+    </p>
+    <div class="k">
+        <div class="1">
+            <div class="icon"> &#129309</div>
+            <div class="text">Personal Relationship</div>
+        </div>
+        <div class="2">
+            <div class="icon"> &#127895</div>
+            <div class="text">Exceptional Services</div>
+        </div>
+        <div class="3">
+            <div class="icon">&#128178</div>
+            <div class="text">Affordable Rates</div>
+        </div>
+    </div>
+
+  
+</section>
+
+
+<section class="contact" id="contact">
+  <div class="con">
+  <div class="content">
+    <h2>Get In Touch</h2>
+    <p>Contact us and get your dream property.We are here to help.</p> 
+  </div>
+  <div class="container">
+    <div class="contact-info">
+      <div class="box">
+       <div class="icon"><i class="fa-solid fa-location-dot"></i></div>
+        <div class="text"><h3>Address</h3>
+        <p>Kinfra Office Rd, <br>Infopark Campus, Kochi, <br>Kakkanad,<br> Kerala 682030</p>
+        </div>
+      </div>
+      <div class="box">
+        <div class="icon"><i class="fa-solid fa-phone"></i></div>
+         <div class="text"><h3>Phone</h3>
+         <p>0123456789</p>
+         </div>
+       </div>
+       <div class="box">
+        <div class="icon"><i class="fa-solid fa-envelope"></i></div>
+         <div class="text"><h3>Email</h3>
+         <p>soumyapraskp@gmail.com</p>
+         </div>
+       </div>
+    </div>
+    <div class="contactform">
+      <form action="" method="post">
+        {% csrf_token %}
+        <h2>Send Message</h2>
+        <div class="inputbox">
+          <input type="text" name="name" required="required">
+          <span>Full Name</span>
+        </div>
+        <div class="inputbox">
+          <input type="text" name="email" required="required">
+          <span>Email</span>
+        </div>
+        <div class="inputbox">
+          <textarea name="message" required="required"></textarea>
+          <span>Type your Message...</span>
+        </div>
+        <div class="inputbox">
+          <input type="submit" name="" value="Send">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+</section>
+<section class="login" id="login">
+ <div class="imgbox">
+  <img src="/static/Images/log.jpeg" alt="">
+ </div>
+ <div class="contentbox">
+  <div class="formbox">
+   <h2>Login</h2>
+   <form action="{% url 'loginpage' %}" method="post">
+    {% csrf_token %}
+    <div class="inputbox">
+      <span>Username</span>
+      <input type="text" name="uname">
+   </div>
+   <div class="inputbox">
+    <span>Password</span>
+    <input type="password" name="password">
+   </div>
+   <div class="remember">
+     <label><input type="checkbox" name="">Remember me</label>
+   </div>
+   <div class="inputbox">
+    <input type="submit"  value="Sign in">
+   </div>
+   <div class="inputbox">
+    <p>Don't have an account?<a href="{% url 'register' %}">Sign up</a></p>
+   </div>
+   </form>
+  </div>
+ </div>
+</section>
+{% include 'apps\footer.html' %}
+
+</body>
+</html>
